@@ -1,0 +1,192 @@
+[
+  {
+    "name": "Apple___Apple_scab",
+    "cause": "Fungus Venturia inaequalis. Favors cool, moist conditions.",
+    "cure": "Apply fungicides such as captan or mancozeb. Remove and destroy infected leaves."
+  },
+  {
+    "name": "Apple___Black_rot",
+    "cause": "Fungus Botryosphaeria obtusa. Spreads through infected fruit mummies and bark.",
+    "cure": "Prune infected limbs and use fungicide sprays during early fruit stages."
+  },
+  {
+    "name": "Apple___Cedar_apple_rust",
+    "cause": "Fungus Gymnosporangium juniperi-virginianae from nearby juniper trees.",
+    "cure": "Remove nearby junipers. Apply fungicides like myclobutanil or mancozeb."
+  },
+  {
+    "name": "Apple___healthy",
+    "cause": "No disease detected.",
+    "cure": "Maintain good air circulation and regular pruning."
+  },
+  {
+    "name": "Blueberry___healthy",
+    "cause": "No disease detected.",
+    "cure": "Continue good watering and sunlight exposure."
+  },
+  {
+    "name": "Cherry___Powdery_mildew",
+    "cause": "Fungus Podosphaera clandestina. White powdery growth on leaves.",
+    "cure": "Use sulfur-based sprays or neem oil. Prune to increase airflow."
+  },
+  {
+    "name": "Cherry___healthy",
+    "cause": "No disease detected.",
+    "cure": "Keep soil well-drained and maintain balanced fertilization."
+  },
+  {
+    "name": "Corn___Cercospora_leaf_spot Gray_leaf_spot",
+    "cause": "Fungus Cercospora zeae-maydis. Favored by humid conditions.",
+    "cure": "Use resistant hybrids. Rotate crops and apply fungicides if needed."
+  },
+  {
+    "name": "Corn___Common_rust",
+    "cause": "Fungus Puccinia sorghi. Develops in moderate temperature and moisture.",
+    "cure": "Use resistant hybrids. Apply fungicides early in infection."
+  },
+  {
+    "name": "Corn___Northern_Leaf_Blight",
+    "cause": "Fungus Exserohilum turcicum causes cigar-shaped lesions.",
+    "cure": "Use resistant varieties and crop rotation."
+  },
+  {
+    "name": "Corn___healthy",
+    "cause": "No disease detected.",
+    "cure": "Maintain balanced fertilization and proper spacing."
+  },
+  {
+    "name": "Grape___Black_rot",
+    "cause": "Fungus Guignardia bidwellii. Appears as black spots on leaves and fruit.",
+    "cure": "Use fungicides and remove mummified fruits."
+  },
+  {
+    "name": "Grape___Esca_(Black_Measles)",
+    "cause": "Fungal complex infection, usually in older vines.",
+    "cure": "Prune infected wood and disinfect tools. Avoid water stress."
+  },
+  {
+    "name": "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
+    "cause": "Fungus Pseudocercospora vitis causing brown leaf lesions.",
+    "cure": "Spray with copper-based fungicides. Remove infected debris."
+  },
+  {
+    "name": "Grape___healthy",
+    "cause": "No disease detected.",
+    "cure": "Maintain proper pruning and nutrient balance."
+  },
+  {
+    "name": "Orange___Haunglongbing_(Citrus_greening)",
+    "cause": "Bacterium Candidatus Liberibacter asiaticus transmitted by psyllids.",
+    "cure": "Remove infected trees. Control psyllids with neem or insecticides."
+  },
+  {
+    "name": "Peach___Bacterial_spot",
+    "cause": "Bacterium Xanthomonas campestris pv. pruni.",
+    "cure": "Apply copper-based bactericides. Remove infected twigs."
+  },
+  {
+    "name": "Peach___healthy",
+    "cause": "No disease detected.",
+    "cure": "Regular pruning and nutrient management."
+  },
+  {
+    "name": "Pepper,_bell___Bacterial_spot",
+    "cause": "Bacterium Xanthomonas campestris pv. vesicatoria.",
+    "cure": "Use copper sprays and resistant varieties."
+  },
+  {
+    "name": "Pepper,_bell___healthy",
+    "cause": "No disease detected.",
+    "cure": "Maintain good field hygiene and regular watering."
+  },
+  {
+    "name": "Potato___Early_blight",
+    "cause": "Fungus Alternaria solani. Brown concentric spots on older leaves.",
+    "cure": "Use fungicides like chlorothalonil or mancozeb."
+  },
+  {
+    "name": "Potato___Late_blight",
+    "cause": "Fungus Phytophthora infestans. Causes rotting and leaf necrosis.",
+    "cure": "Remove infected plants and use copper-based sprays."
+  },
+  {
+    "name": "Potato___healthy",
+    "cause": "No disease detected.",
+    "cure": "Ensure proper drainage and avoid overwatering."
+  },
+  {
+    "name": "Raspberry___healthy",
+    "cause": "No disease detected.",
+    "cure": "Maintain good airflow and remove old canes."
+  },
+  {
+    "name": "Soybean___healthy",
+    "cause": "No disease detected.",
+    "cure": "Use disease-free seeds and rotate crops."
+  },
+  {
+    "name": "Squash___Powdery_mildew",
+    "cause": "Fungus Podosphaera xanthii. White coating on leaves.",
+    "cure": "Use sulfur sprays or potassium bicarbonate. Remove infected leaves."
+  },
+  {
+    "name": "Strawberry___Leaf_scorch",
+    "cause": "Fungus Diplocarpon earliana causing brown leaf edges.",
+    "cure": "Remove infected leaves and apply fungicide as needed."
+  },
+  {
+    "name": "Strawberry___healthy",
+    "cause": "No disease detected.",
+    "cure": "Avoid overhead watering and ensure good air circulation."
+  },
+  {
+    "name": "Tomato___Bacterial_spot",
+    "cause": "Bacterium Xanthomonas campestris pv. vesicatoria.",
+    "cure": "Use copper sprays and disease-free seeds."
+  },
+  {
+    "name": "Tomato___Early_blight",
+    "cause": "Fungus Alternaria solani. Common in warm, wet conditions.",
+    "cure": "Apply chlorothalonil or copper fungicides. Rotate crops annually."
+  },
+  {
+    "name": "Tomato___Late_blight",
+    "cause": "Fungus Phytophthora infestans. Causes grey mold and fruit rot.",
+    "cure": "Remove infected plants and spray mancozeb or copper hydroxide."
+  },
+  {
+    "name": "Tomato___Leaf_Mold",
+    "cause": "Fungus Passalora fulva. Yellow spots turning brown underneath leaves.",
+    "cure": "Improve ventilation and apply fungicides."
+  },
+  {
+    "name": "Tomato___Septoria_leaf_spot",
+    "cause": "Fungus Septoria lycopersici.",
+    "cure": "Remove infected leaves and use fungicides like chlorothalonil."
+  },
+  {
+    "name": "Tomato___Spider_mites Two-spotted_spider_mite",
+    "cause": "Tiny mites feeding on plant sap under dry, hot conditions.",
+    "cure": "Spray neem oil or miticides. Increase humidity."
+  },
+  {
+    "name": "Tomato___Target_Spot",
+    "cause": "Fungus Corynespora cassiicola causes circular brown lesions.",
+    "cure": "Use resistant varieties and fungicide treatment."
+  },
+  {
+    "name": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+    "cause": "Whitefly-transmitted virus causing leaf curling and yellowing.",
+    "cure": "Use resistant varieties and control whiteflies with insecticidal soap."
+  },
+  {
+    "name": "Tomato___Tomato_mosaic_virus",
+    "cause": "Virus spread by contact with infected plants or tools.",
+    "cure": "Remove infected plants. Disinfect tools with bleach solution."
+  },
+  {
+    "name": "Tomato___healthy",
+    "cause": "No disease detected.",
+    "cure": "Maintain balanced fertilizer and proper watering."
+  }
+]

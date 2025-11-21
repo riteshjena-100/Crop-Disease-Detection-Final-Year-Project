@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CropGuard AI - Crop Disease Detection</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": {
+              "DEFAULT": "#22c55e",
+              "light": "#4ade80",
+              "dark": "#16a34a",
+              "text": "#052e16"
+            },
+            "accent": {
+              "DEFAULT": "#3b82f6",
+              "hover": "#2563eb"
+            },
+            "background-light": "#f6f8f6",
+            "background-dark": "#000000",
+            "surface-dark": "#111111",
+            "border-dark": "#27272a"
+          },
+          fontFamily: {
+            "display": ["Space Grotesk", "sans-serif"]
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#343a40] dark:text-gray-200">
+  <div class="relative flex min-h-screen w-full flex-col">
+    <!-- Header -->
+    <header class="w-full bg-white/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-gray-200 dark:border-border-dark sticky top-0 z-10 hidden-initially animate-fadeInDown">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <!-- Logo and Title - Left Side -->
+          <div class="flex items-center gap-4 text-[#131811] dark:text-white">
+            <div class="text-primary">
+              <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <path clip-rule="evenodd" d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" fill-opacity="0.5" fill-rule="evenodd"></path>
+                <path clip-rule="evenodd" d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" fill="currentColor" fill-rule="evenodd"></path>
+              </svg>
+            </div>
+            <h2 class="text-[#131811] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">CropGuard AI</h2>
+          </div>
+          
+          <!-- Dark Mode Toggle - Right Side -->
+          <button id="darkModeToggle" class="flex items-center justify-center w-10 h-10 rounded-lg bg-gray-100 dark:bg-surface-dark hover:bg-gray-200 dark:hover:bg-border-dark transition-all hover:scale-105">
+            <span class="material-symbols-outlined text-gray-700 dark:text-gray-300">dark_mode</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-grow">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        <!-- Page Heading -->
+        <div class="text-center mb-12 hidden-initially animate-fadeInUp" style="animation-delay: 0.2s">
+          <h1 class="text-[#131811] dark:text-white text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em]">Detect Crop Disease Instantly</h1>
+          <p class="text-[#6b8961] dark:text-gray-400 text-lg font-normal leading-normal mt-3 max-w-2xl mx-auto">Upload an image of your crop to get an instant AI-powered analysis of its health.</p>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          <!-- Left Column -->
+          <div class="flex flex-col gap-6 hidden-initially animate-slideInLeft" style="animation-delay: 0.4s">
+            <!-- Upload Zone -->
+            <div id="uploadZone" class="flex flex-col items-center gap-6 rounded-xl border-2 border-dashed border-gray-300 dark:border-border-dark p-8 md:p-14 text-center bg-white/50 dark:bg-surface-dark/50 transition-all duration-300 hover:border-primary hover:bg-primary/5 cursor-pointer">
+              <span class="material-symbols-outlined text-5xl text-gray-400 dark:text-gray-500 animate-bounce">cloud_upload</span>
+              <div class="flex flex-col items-center gap-2">
+                <p class="text-[#131811] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Drag & drop your crop image here</p>
+                <p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">Your image should be in .jpeg or .png format, up to 10MB.</p>
+              </div>
+              <input type="file" id="fileInput" accept="image/*" class="hidden">
+              <button id="browseBtn" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-accent text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-accent-hover transition-all hover:scale-105">
+                <span class="truncate">Browse Files</span>
+              </button>
+            </div>
+
+            <!-- Image Preview -->
+            <div id="previewSection" class="hidden flex-col gap-4 animate-scaleIn">
+              <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UPLOADED IMAGE</p>
+              <div class="flex items-center gap-4 bg-white dark:bg-surface-dark p-3 rounded-lg border border-gray-200 dark:border-border-dark min-h-14 justify-between shadow-sm">
+                <div class="flex items-center gap-4 overflow-hidden">
+                  <div id="previewImg" class="bg-center bg-no-repeat aspect-square bg-cover rounded-md size-12 flex-shrink-0"></div>
+                  <p id="fileName" class="text-[#131811] dark:text-white text-base font-normal leading-normal flex-1 truncate"></p>
+                </div>
+                <button id="removeBtn" class="shrink-0 text-gray-500 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-all hover:scale-110">
+                  <span class="material-symbols-outlined flex size-7 items-center justify-center">close</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Analyze Button -->
+            <div class="flex pt-3 justify-center">
+              <button id="analyzeBtn" disabled class="flex min-w-[84px] w-full max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-5 flex-1 bg-primary text-white dark:text-primary-text text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary-dark transition-all hover:scale-105 disabled:bg-gray-300 dark:disabled:bg-gray-700 disabled:text-gray-500 dark:disabled:text-gray-500 disabled:cursor-not-allowed disabled:hover:scale-100">
+                <span class="truncate">Analyze Image</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div class="flex flex-col gap-6 hidden-initially animate-slideInRight" style="animation-delay: 0.6s">
+            <p class="text-sm font-medium text-gray-500 dark:text-gray-400">ANALYSIS RESULT</p>
+
+            <!-- Loading State -->
+            <div id="loadingState" class="hidden bg-white dark:bg-surface-dark rounded-xl border border-gray-200 dark:border-border-dark p-6 shadow-sm">
+              <div class="flex flex-col items-center justify-center py-12 gap-4">
+                <div class="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+                <p class="text-[#131811] dark:text-white text-lg font-medium animate-pulse">Analyzing your crop image...</p>
+              </div>
+            </div>
+
+            <!-- Results Display -->
+            <div id="resultsCard" class="hidden bg-white dark:bg-surface-dark rounded-xl border border-gray-200 dark:border-border-dark p-6 shadow-sm">
+              <h3 class="text-lg font-bold text-[#131811] dark:text-white mb-4">Results</h3>
+              <div class="flex flex-col gap-5">
+                <!-- Detected Disease -->
+                <div class="animate-fadeInUp" style="animation-delay: 0.1s">
+                  <p class="text-sm text-gray-500 dark:text-gray-400 mb-1">Detected Disease</p>
+                  <p id="diseaseName" class="text-2xl font-bold text-primary dark:text-primary-light"></p>
+                </div>
+
+                <!-- Confidence Level -->
+                <div class="animate-fadeInUp" style="animation-delay: 0.2s">
+                  <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Confidence Level</p>
+                  <div class="flex items-center gap-4">
+                    <div class="w-full bg-gray-200 dark:bg-border-dark rounded-full h-2.5">
+                      <div id="confidenceBar" class="bg-primary dark:bg-gradient-to-r dark:from-primary-dark dark:to-primary-light h-2.5 rounded-full transition-all duration-1000" style="width: 0%"></div>
+                    </div>
+                    <p id="confidenceText" class="text-lg font-bold text-[#131811] dark:text-white"></p>
+                  </div>
+                </div>
+
+                <!-- Cause -->
+                <div class="animate-fadeInUp" style="animation-delay: 0.3s">
+                  <p class="text-sm text-gray-500 dark:text-gray-400 mb-1">Cause</p>
+                  <p id="causeText" class="text-gray-700 dark:text-gray-300 text-base leading-relaxed"></p>
+                </div>
+
+                <!-- Cure -->
+                <div class="animate-fadeInUp" style="animation-delay: 0.4s">
+                  <p class="text-sm text-gray-500 dark:text-gray-400 mb-1">Recommended Treatment</p>
+                  <p id="cureText" class="text-gray-700 dark:text-gray-300 text-base leading-relaxed"></p>
+                </div>
+              </div>
+
+              <!-- Reset Button -->
+              <div class="flex mt-6 justify-center animate-fadeInUp" style="animation-delay: 0.5s">
+                <button id="resetBtn" class="flex min-w-[84px] w-full max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-5 flex-1 bg-accent text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-accent-hover transition-all hover:scale-105">
+                  <span class="truncate">Analyze Another Image</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Empty State -->
+            <div id="emptyState" class="bg-white dark:bg-surface-dark rounded-xl border border-gray-200 dark:border-border-dark p-6 shadow-sm">
+              <div class="flex flex-col items-center justify-center py-12 gap-4 text-gray-400">
+                <span class="material-symbols-outlined text-6xl">insights</span>
+                <p class="text-center">Upload an image to see analysis results</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
