@@ -33,12 +33,6 @@ darkModeToggle.addEventListener('click', () => {
     localStorage.setItem('theme', 'light');
     darkModeIcon.textContent = 'dark_mode';
   }
-  
-  // Add animation to toggle button
-  darkModeToggle.style.transform = 'rotate(360deg)';
-  setTimeout(() => {
-    darkModeToggle.style.transform = 'rotate(0deg)';
-  }, 300);
 });
 
 // DOM Elements
